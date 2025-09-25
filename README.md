@@ -1,37 +1,118 @@
-# GameHub
+# Game Hub (Web)
 
-GameHub is a video game discovery web app that helps you find new and interesting games to play. With GameHub, you can search for games by platform, genre, and more. 
+A responsive web application for discovering, filtering, and exploring video games. Built with React, TypeScript, Vite, and Chakra UI for fast development and an accessible UI. This repository contains the web version of the project.
 
-This is the project we build in my Ultimate React course. You can find the full course at: https://codewithmosh.com 
+> If you are looking for the mobile version, it is available here:  
+> **Mobile App Repository:** [Game-Hub-Mobile](https://github.com/KovinthKrishna/Game-Hub-Mobile)
+
+---
+
+## Features
+- Browse games with clean, responsive UI
+- Filter and search functionality
+- Light and dark mode via Chakra UI
+- API-driven data layer (Axios-based abstraction)
+- Strongly typed with TypeScript
+- Fast dev + HMR using Vite
+
+---
+
+## Technologies used
+| Layer            | Technology |
+|------------------|------------|
+| Framework        | React 18 + TypeScript |
+| Build Tool       | Vite 5 |
+| UI Library       | Chakra UI |
+| HTTP Client      | Axios |
+| Icons            | React Icons |
+
+---
+
+## Environment Variables
+
+The project uses Vite, so environment variables must be prefixed with `VITE_` to be exposed to client code.
+
+Create a `.env` (or `.env.local`) in the project root.
+
+### Expected Variables
+
+| Variable | Description | Example |
+|----------|-------------|---------|
+| `VITE_RAWG_API_KEY` | API key for RAWG | `your_api_key_here` |
+
+Example `.env`:
+```bash
+VITE_RAWG_API_KEY=YOUR_KEY_HERE
+```
+
+---
 
 ## Getting Started
 
-To get started with GameHub, follow these steps:
+### Prerequisites
+- Node.js (LTS recommended)
+- npm (bundled with Node) or pnpm/yarn (if you prefer)
 
+Confirm versions:
+```bash
+node -v
+npm -v
+```
 
-1. Clone this repository to your local machine.
-2. Run `npm install` to install the required dependencies.
-3. Get a RAWG API key at https://rawg.io/apidocs. You'll have to create an account first. 
-4. Add the API key to **src/services/api-client.ts**
-5. Run `npm run dev` to start the web server. 
+### Installation
+```bash
+git clone https://github.com/KovinthKrishna/Game-Hub-Web.git
+cd Game-Hub-Web
+npm install
+```
 
-## About the Course 
+### Configure Environment
+Create `.env` and add required variables (see [Environment Variables](#environment-variables)).
 
-I have designed this course to teach you everything you need to know to become a proficient React developer. This course is the first part of a two-part series, covering the fundamentals. You'll learn how to:
+### Running in Development
+```bash
+npm run dev
+```
+Vite will output a local URL (typically `http://localhost:5173`).
 
-- Build front-end apps with React and TypeScript
-- Build reusable function components
-- Style your components using vanilla CSS, CSS modules, and CSS-in-JS
-- Manage component state
-- Build forms with React Hook Forms
-- Implement form validation using Zod
-- Connect your React apps to the backend
-- Deploy your React apps
-- Use VSCode shortcuts to increase your productivity
-- Write clean code like a pro
-- Apply best practices
+### Building for Production
+```bash
+npm run build
+```
+Outputs static assets to `dist/`.
 
+### Preview Production Build
+```bash
+npm run preview
+```
+Serves the built `dist/` folder locally for validation.
 
-By the end of this course, you'll have a solid understanding of React and be able to build real-world applications with React and TypeScript.
+---
 
-You can find the full course at: https://codewithmosh.com 
+## Project Structure
+
+```
+.
+├── index.html            # Vite entry HTML
+├── package.json
+├── tsconfig.json
+├── tsconfig.node.json
+├── vite.config.ts
+├── .eslintrc.cjs
+├── .gitignore
+├── src/
+│   ├── main.tsx
+│   ├── App.tsx           # Root component
+│   ├── components/       # Reusable UI components (buttons, cards, filters)
+│   ├── hooks/            # Custom hooks (e.g. useGames, useGenres)
+│   ├── services/
+│   │   └── apiClient.ts  # Axios instance
+│   ├── theme.ts          # Chakra theme overrides
+│   ├── assets/           # Images, logos
+└── README.md
+```
+
+## Mobile Version
+
+Want this experience on mobile?  
+Visit the companion repository: [Game-Hub-Mobile](https://github.com/KovinthKrishna/Game-Hub-Mobile)
